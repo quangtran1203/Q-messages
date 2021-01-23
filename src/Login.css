@@ -1,0 +1,71 @@
+.login {
+  height: 100vh;
+  width: 100vw;
+  display: grid;
+  place-items: center;
+  background-image: url("./loginimg.jpg");
+  background-size: cover;
+  background-repeat: repeat;
+  background-position: center;
+}
+.login > p {
+  background-color: rgba(0, 0, 0, 0.7);
+  padding: 10px;
+  color: white;
+  font-size: 0.9rem;
+}
+.login_container {
+  padding: 100px;
+  text-align: center;
+  background-color: rgba(0, 0, 0, 0.75);
+  border-radius: 20px;
+  color: white;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12);
+}
+.login_title {
+  color: rgb(116, 181, 235);
+  font-weight: 700;
+  font-size: 2.9rem;
+  margin-bottom: 30px;
+}
+.login_text {
+  text-decoration: underline;
+  font-weight: 600;
+  font-size: 1.1rem;
+}
+.login_container > button {
+  background: #1d976c; /* fallback for old browsers */
+  background: -webkit-linear-gradient(
+    to right,
+    #93f9b9,
+    #1d976c
+  ); /* Chrome 10-25, Safari 5.1-6 */
+  background: linear-gradient(
+    to right,
+    #93f9b9,
+    #1d976c
+  ); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+  margin-top: 40px;
+  border-radius: 20px;
+  padding: 10px 20px;
+  font-size: 1rem;
+  font-weight: 600;
+  opacity: 0.7;
+  outline: none;
+  transition: all 0.4s ease;
+}
+.login_container > button:hover {
+  opacity: 1;
+  color: black;
+  background: #757f9a; /* fallback for old browsers */
+  background: -webkit-linear-gradient(
+    to right,
+    #d7dde8,
+    #757f9a
+  ); /* Chrome 10-25, Safari 5.1-6 */
+  background: linear-gradient(
+    to right,
+    #d7dde8,
+    #757f9a
+  ); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+}

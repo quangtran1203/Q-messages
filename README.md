@@ -1,74 +1,105 @@
-# npm audit fix --force
 
-# npm run build
+# Simple Chinese-to-English Web Translator (Prototype)
 
-# Getting Started with Create React App
+## 1. Overview
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+This project is a simple web application built with Python and Flask that aims to translate Chinese text into English. Currently, this is a prototype version where the translation functionality is **mocked**. Instead of performing a real translation, the application returns a placeholder string indicating that the translation was attempted.
 
-## Available Scripts
+This README provides instructions on how to set up and run the current prototype.
 
-In the project directory, you can run:
+## 2. Implemented Features (Based on Completed Tasks)
 
-### `npm start`
+*   **Basic Web Interface:** A web page with a form to input Chinese text.
+*   **Text Submission:** Users can submit Chinese text through the form.
+*   **Mock Translation Display:** Upon submission, the application displays the original Chinese text and a *mock* translated English text.
+*   **Basic Error Handling:** If no text is submitted, a message prompts the user to enter text.
+*   **Project Structure:** Basic project structure (`app.py`, `translator_module.py`, `templates/index.html`) is in place.
+*   **Unit Tests:** Basic unit testing framework (pytest) is configured.
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+## 3. Directory Structure
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+The project follows this basic structure:
 
-### `npm test`
+```
+simple_translator/
+├── app.py                 # Main Flask application logic and routes
+├── translator_module.py   # Handles mock translation logic
+├── templates/
+│   └── index.html         # Jinja2 template for the form and results
+└── requirements.txt       # Python dependencies
+```
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+*(Note: `static/` directory for CSS/JS may be added later as per the TDD but is not part of the current completed tasks.)*
 
-### `npm run build`
+## 4. Setup and Installation
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+Follow these steps to set up your local environment and run the application.
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+### Prerequisites
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+*   Python 3.x (e.g., Python 3.7 or newer)
+*   `pip` (Python package installer)
 
-### `npm run eject`
+### Steps
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+1.  **Clone the Repository (if applicable):**
+    If you have this project as a repository, clone it to your local machine. If you only have the files, ensure they are in a directory structure as described above, with `simple_translator` as the root project folder if `app.py` is inside it. Based on the TDD, the root is `simple_translator/`.
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+2.  **Navigate to the Project Directory:**
+    Open your terminal or command prompt and navigate to the root directory of the project where `app.py` is located (e.g., `cd path/to/simple_translator`).
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+3.  **Create a Virtual Environment (Recommended):**
+    It's highly recommended to use a virtual environment to manage project dependencies.
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+    *   On macOS and Linux:
+        ```bash
+        python3 -m venv venv
+        source venv/bin/activate
+        ```
+    *   On Windows:
+        ```bash
+        python -m venv venv
+        .\venv\Scripts\activate
+        ```
+    You should see `(venv)` at the beginning of your terminal prompt, indicating the virtual environment is active.
 
-## Learn More
+4.  **Install Dependencies:**
+    With the virtual environment activated, and ensuring you are in the directory containing `requirements.txt` (which should be `simple_translator/`), install the required Python packages:
+    ```bash
+    pip install -r requirements.txt
+    ```
+    This will install `Flask` and `pytest`.
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+## 5. Running the Application
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+1.  **Start the Flask Development Server:**
+    Ensure you are in the `simple_translator` directory (the one containing `app.py`) and your virtual environment is active. Run the following command:
+    ```bash
+    python app.py
+    ```
+    You should see output similar to:
+    ```
+     * Serving Flask app 'app'
+     * Running on http://127.0.0.1:5000 (Press CTRL+C to quit)
+    ```
+    *(The exact port might vary if 5000 is in use, but Flask's default is 5000).*
 
-### Code Splitting
+2.  **Access the Application:**
+    Open your web browser and navigate to:
+    ```
+    http://127.0.0.1:5000/
+    ```
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+## 6. How to Use
 
-### Analyzing the Bundle Size
+1.  When you open the application in your browser, you will see a simple web page with a text area.
+2.  Enter any Chinese text (or any text, as the translation is currently mocked) into the text area.
+3.  Click the "Submit" button.
+4.  The page will reload, displaying:
+    *   The original text you entered.
+    *   A **mock translation** (e.g., "Mock translation of: [your_text]").
+5.  If you submit the form with an empty text area, a message will prompt you to enter text.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+---
 
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+This README reflects the state of the project after the completion of tasks up to "Task 1.3: Implement Mock Translation Logic and Basic POST Handling." The actual translation functionality using an external library is not yet implemented.

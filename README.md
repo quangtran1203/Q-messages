@@ -1,74 +1,104 @@
-# npm audit fix --force
 
-# npm run build
+# Chinese-to-English Translation Webapp (Prototype)
 
-# Getting Started with Create React App
+## Overview
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+This project is a simple web application designed to translate Chinese text into English. This document describes the current prototype version of the application.
 
-## Available Scripts
+The current prototype establishes the basic Flask web application structure, provides a user interface for text input, and demonstrates form submission handling. **Actual translation functionality using an external API is not yet implemented in this version.**
 
-In the project directory, you can run:
+## Features Implemented (Prototype Stage)
 
-### `npm start`
+Based on the completed development tasks, the current version includes:
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+*   **Basic Flask Web Server:** The application is built using the Flask framework.
+*   **HTML User Interface:** Serves an HTML page (`index.html`) located at the root path (`/`).
+    *   The page includes a form with a text area (`chinese_text`) for users to input Chinese text.
+    *   A "Submit" button is provided to submit the form.
+*   **Form Submission Handling:**
+    *   The form submits data via a `POST` request to the `/translate` endpoint.
+    *   The backend retrieves the submitted text.
+*   **Display of Submitted Text:**
+    *   After submission, the `index.html` page is re-rendered.
+    *   The original text entered by the user is displayed back on the page.
+    *   A placeholder message (e.g., "Translation will appear here.") is shown where the translated text will eventually appear.
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+## Prerequisites
 
-### `npm test`
+*   Python 3.x
+*   `pip` (Python package installer)
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+## Setup and Installation
 
-### `npm run build`
+1.  **Obtain the Project Files:**
+    *   If you haven't already, clone the project repository to your local machine.
+        ```bash
+        # Example: git clone <repository-url>
+        cd <project-directory>
+        ```
+    *   If you have already obtained the project files (e.g., by downloading a zip archive), navigate to the project's root directory.
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+2.  **Create and Activate a Virtual Environment (Recommended):**
+    It's good practice to use a virtual environment to manage project dependencies.
+    ```bash
+    python -m venv venv
+    ```
+    Activate the virtual environment:
+    *   On macOS and Linux:
+        ```bash
+        source venv/bin/activate
+        ```
+    *   On Windows:
+        ```bash
+        venv\Scripts\activate
+        ```
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+3.  **Install Dependencies:**
+    Install the required Python packages listed in `requirements.txt`.
+    ```bash
+    pip install -r requirements.txt
+    ```
+    The key dependencies for this prototype are `Flask` and `pytest`.
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+## Running the Application
 
-### `npm run eject`
+1.  **Navigate to Project Root:**
+    Ensure your terminal is in the root directory of the project (the directory containing `app.py`).
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+2.  **Activate Virtual Environment:**
+    If you created a virtual environment, make sure it is activated (see step 2 in "Setup and Installation").
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+3.  **Run the Flask Development Server:**
+    Use the following command to start the application:
+    ```bash
+    flask run
+    ```
+    You should see output indicating the server is running, typically on `http://127.0.0.1:5000/`.
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+4.  **Access the Application:**
+    Open a web browser and navigate to:
+    ```
+    http://127.0.0.1:5000/
+    ```
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+## Expected Behavior
 
-## Learn More
+*   **Initial Page Load (`/`):**
+    *   The browser will display a web page.
+    *   This page will contain a text area for inputting text.
+    *   A "Submit" (or similarly labeled) button will be present.
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+*   **After Submitting Text (to `/translate`):**
+    1.  Enter any text into the text area.
+    2.  Click the "Submit" button.
+    3.  The page will re-render.
+    4.  The text you entered into the text area should now be displayed on the page (likely repopulating the textarea or shown nearby).
+    5.  A placeholder message, such as "Translation will appear here.", will also be visible, indicating where the English translation would appear in future versions.
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+## Project Structure Highlights
 
-### Code Splitting
+*   `app.py`: The main Flask application file containing route definitions and request handling logic for the prototype.
+*   `templates/index.html`: The HTML template for the user interface.
+*   `requirements.txt`: Lists project dependencies (Flask, pytest).
+*   `tests/`: Contains unit tests for the application (using pytest).
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)

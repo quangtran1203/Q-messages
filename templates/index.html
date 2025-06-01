@@ -1,0 +1,30 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Chinese to English Translator</title>
+</head>
+<body>
+    <h1>Translate Chinese to English</h1>
+    <form method="POST" action="/translate">
+        <div>
+            <label for="chinese_text">Enter Chinese Text:</label>
+        </div>
+        <div>
+            <textarea id="chinese_text" name="chinese_text" rows="10" cols="50">{{ original_text }}</textarea>
+        </div>
+        <div>
+            <button type="submit">Translate</button>
+        </div>
+    </form>
+
+    {% if translation_placeholder_text %}
+    <div>
+        <h2>Translation:</h2>
+        <p>{{ translation_placeholder_text }}</p>
+    </div>
+    {% endif %}
+
+</body>
+</html>

@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Chinese to English Translator</title>
+</head>
+<body>
+    <h1>Chinese to English Translator</h1>
+
+    <form method="POST" action="/translate">
+        <textarea name="chinese_text" placeholder="Enter Chinese text here..." rows="4" cols="50"></textarea><br><br>
+        <button type="submit">Translate</button>
+    </form>
+
+    <h3>Translation:</h3>
+    <div id="translation_result">
+        <!-- Translation will appear here -->
+    </div>
+
+    <div id="error_message_area" style="color: red;">
+        <!-- Error messages will appear here -->
+    </div>
+
+</body>
+</html>

@@ -1,74 +1,131 @@
-# npm audit fix --force
 
-# npm run build
+# Chinese-to-English Translation Webapp (Prototype)
 
-# Getting Started with Create React App
+## Overview
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+This project is a simple web application designed to translate Chinese text into English, based on user requirements and a provided technical design.
 
-## Available Scripts
+Currently, the application is in its **prototype stage**. The implemented features based on the completed development tasks include:
 
-In the project directory, you can run:
+*   A basic Flask web server (`app.py`).
+*   A simple HTML user interface (`templates/index.html`) featuring a text area for Chinese input and a "Translate" button.
+*   A `/translate` endpoint that processes the input.
+*   A **stubbed** translation module (`translator.py`). This means that currently, the application does **not** perform real translation. Instead, it returns a fixed, hardcoded English phrase ("Stubbed English translation") regardless of the Chinese text entered.
 
-### `npm start`
+The core functionality of receiving Chinese text and displaying a *placeholder* translation is operational.
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+## Environment Setup and Running Instructions
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+Follow these steps to set up and run the application locally.
 
-### `npm test`
+### 1. Prerequisites
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+*   Python 3.x
+*   `pip` (Python package installer, usually comes with Python)
+*   A tool for creating virtual environments, like `venv` (recommended, part of Python's standard library).
 
-### `npm run build`
+### 2. Obtain the Code
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+Ensure you have the project files:
+*   `app.py`
+*   `translator.py`
+*   `requirements.txt`
+*   `templates/index.html`
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+(If this were a Git repository, you would typically clone it here.)
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+### 3. Setup Virtual Environment
 
-### `npm run eject`
+It's highly recommended to use a virtual environment to manage project dependencies.
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+*   Navigate to the project's root directory in your terminal.
+*   Create a virtual environment (e.g., named `venv`):
+    ```bash
+    python -m venv venv
+    ```
+*   Activate the virtual environment:
+    *   On macOS and Linux:
+        ```bash
+        source venv/bin/activate
+        ```
+    *   On Windows:
+        ```bash
+        venv\Scripts\activate
+        ```
+    Your terminal prompt should change to indicate that the virtual environment is active.
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+### 4. Install Dependencies
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+The project's dependencies are listed in `requirements.txt`.
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+*   With your virtual environment active, install the dependencies:
+    ```bash
+    pip install -r requirements.txt
+    ```
+    (This will currently install Flask, as per the completed tasks.)
 
-## Learn More
+### 5. Expected Directory Structure
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+For context, your project directory should look similar to this:
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+```
+.
+├── app.py               # Main Flask application
+├── translator.py        # Stubbed translation module
+├── requirements.txt     # Project dependencies
+└── templates/
+    └── index.html       # HTML template for the UI
+```
 
-### Code Splitting
+### 6. Running the Application
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+The application uses Flask's built-in development server.
 
-### Analyzing the Bundle Size
+*   Set the `FLASK_APP` environment variable to point to your main application file:
+    *   On macOS and Linux:
+        ```bash
+        export FLASK_APP=app.py
+        ```
+    *   On Windows:
+        ```bash
+        set FLASK_APP=app.py
+        ```
+*   (Optional but recommended) Set Flask to development mode for debugging features:
+    *   On macOS and Linux:
+        ```bash
+        export FLASK_ENV=development
+        ```
+    *   On Windows:
+        ```bash
+        set FLASK_ENV=development
+        ```
+*   Run the Flask development server:
+    ```bash
+    flask run
+    ```
+*   To stop the server, press `Ctrl+C` in the terminal where it is running.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+### 7. Accessing the Application
 
-### Making a Progressive Web App
+*   Once the server is running (it will typically say something like `* Running on http://127.0.0.1:5000/`), open a web browser.
+*   Navigate to: `http://127.0.0.1:5000/`
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+### 8. Expected Behavior
 
-### Advanced Configuration
+*   **Initial Page:** You should see a webpage with:
+    *   A text area prompting for Chinese text.
+    *   A "Translate" button.
+*   **Submitting Text:**
+    1.  Enter any text (or leave the text area empty) and click the "Translate" button.
+    2.  The page will reload. You will see:
+        *   The original text you entered (which will be blank if submitted empty).
+        *   The phrase "Stubbed English translation" displayed as the translated output. This is because the current `translator.py` module is a stub and returns this fixed phrase regardless of the input.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
+## Future Work
 
-### Deployment
+This prototype serves as the foundation for the Chinese-to-English translation webapp. Future development will involve:
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+*   Implementing input validation (e.g., for empty submissions, as per TDD 3.1.4.2).
+*   Replacing the stubbed translation module with one that interacts with an actual translation service (e.g., MyMemory API).
+*   Implementing more robust error handling for API interactions.
+*   Potentially adding styling and improving the user interface.

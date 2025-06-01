@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chinese to English Translator</title>
+</head>
+<body>
+    <h1>Chinese to English Translator</h1>
+
+    <form method="POST" action="/">
+        <div>
+            <label for="chinese_text">Enter Chinese Text:</label><br>
+            <textarea id="chinese_text" name="chinese_text" rows="4" cols="50"></textarea><br>
+        </div>
+        <button type="submit">Translate</button>
+    </form>
+
+    {% raw %}{% if error_message %}
+        <div style="color: red;">
+            <p>Error: {{ error_message }}</p>
+        </div>
+    {% endif %}{% endraw %}
+
+    {% raw %}{% if translated_text %}
+        <div>
+            <h2>English Translation:</h2>
+            <p>{{ translated_text }}</p>
+        </div>
+    {% endif %}{% endraw %}
+
+</body>
+</html>

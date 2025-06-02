@@ -1,0 +1,62 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chinese to English Translator</title>
+    <style>
+        body { font-family: sans-serif; margin: 20px; background-color: #f4f4f4; color: #333; }
+        .container { max-width: 600px; margin: auto; background-color: #fff; padding: 20px; border-radius: 8px; box-shadow: 0 0 10px rgba(0,0,0,0.1); }
+        h1 { color: #333; text-align: center; }
+        textarea { width: 95%; padding: 10px; margin-bottom: 10px; border: 1px solid #ddd; border-radius: 4px; font-size: 16px; }
+        input[type="submit"] { background-color: #007bff; color: white; padding: 10px 15px; border: none; border-radius: 4px; cursor: pointer; font-size: 16px; }
+        input[type="submit"]:hover { background-color: #0056b3; }
+        .result-area { margin-top: 20px; padding: 15px; background-color: #e9ecef; border-radius: 4px; }
+        .result-area h3 { margin-top: 0; color: #007bff; }
+        .result-text { white-space: pre-wrap; /* Preserve whitespace and newlines */ }
+        label { display: block; margin-bottom: 5px; font-weight: bold; }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Chinese to English Translator</h1>
+        
+        <form action="/translate" method="post">
+            <div>
+                <label for="chinese_text">Enter Chinese Text:</label>
+                <textarea id="chinese_text" name="chinese_text" rows="5" required placeholder="输入中文文本..."></textarea>
+            </div>
+            <div>
+                <input type="submit" value="Translate">
+            </div>
+        </form>
+        
+        {% if original_text and translated_text %}
+        <div id="translation_result_area" class="result-area">
+            <h3>Translation Result:</h3>
+            <p><strong>Original (Chinese):</strong></p>
+            <p class="result-text">{{ original_text }}</p>
+            <p><strong>Translated (English):</strong></p>
+            <p class="result-text">{{ translated_text }}</p>
+        </div>
+        {% elif error_message %}
+        <div id="error_area" class="result-area" style="background-color: #f8d7da; color: #721c24;">
+            <h3>Error:</h3>
+            <p class="result-text">{{ error_message }}</p>
+        </div>
+        {% endif %}
+
+        <!-- Static placeholders for task acceptance criteria (will be replaced by Flask rendering) -->
+        <!-- These will not be visible if the above Flask conditional blocks are active -->
+        {% if not original_text and not translated_text and not error_message %}
+        <div id="static_original_text_display_area" style="margin-top:20px; padding:10px; border:1px dashed #ccc;">
+            <p><em>(Original Chinese text will appear here)</em></p>
+        </div>
+        <div id="static_translated_text_display_area" style="margin-top:10px; padding:10px; border:1px dashed #ccc;">
+            <p><em>(English translation will appear here)</em></p>
+        </div>
+        {% endif %}
+    </div>
+</body>
+</html>

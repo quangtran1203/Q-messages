@@ -1,0 +1,23 @@
+{
+  "theme": "Dracula",
+  "mcpServers": {
+    "github": {
+      "command": "docker",
+      "args": [
+        "run",
+        "-i",
+        "--rm",
+        "-e",
+        "GITHUB_PERSONAL_ACCESS_TOKEN",
+        "ghcr.io/github/github-mcp-server"
+      ],
+      "env": {
+        "GITHUB_PERSONAL_ACCESS_TOKEN": "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"
+      }
+    },
+    "cloud-run": {
+      "command": "npx",
+      "args": ["-y", "https://github.com/GoogleCloudPlatform/cloud-run-mcp"]
+    }
+  }
+}
